@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="./style.css">
+    <link rel="stylesheet" href="./pie.css">
+    <!-- min css -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" />
+    <!-- ml5 library -->
+    <script src="https://unpkg.com/ml5@0.1.1/dist/ml5.min.js"></script>
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body onresize="windowResized()" id="container">
+    <nav class="navbar navbar-expand-sm bg-light navbar-light">
+            <!-- Brand/logo -->
+            <a class="navbar-brand" href="#">
+            <h1>Picture<small> Classify</small></h1>
+            </a>
+    </nav>
+        
+    <div class="container-fluid">
+        <blockquote class="blockquote text-justify" style="margin:30px;">
+        <h4 id="isLoading" class="result-color">Loading Model...</h4>
+        </blockquote>
+    </div>
+    <div class="row">
+        <div class="col" style='margin-left:100px;'>
+            <img src="./bird.jpg" id="image" class="center">
+            <div id="text-container">
+                <p id="instruction" class="green-color">
+                    <button id="uploader-btn" onClick="clickUploader()">Upload Image</button>
+                    <p class="green-color "> or drag and drop 📂</p>
+                </p>
+                <p id="warning" class="result-color"></p>
+                <p class="result-color">
+                    The MobileNet model labeled this ⤴ as a
+                    <span id="result" class="green-color">...</span>
+                    <span id="probability-container" class="result-color">
+                        with a confidence of
+                        <span id="probability" class="green-color">...</span>.
+                    </span>
+                </p>
+                <input name="imgFile" type="file" id="fileUploader" accept="image/*" onChange="handleFiles()">
+            </div>
+        </div>
+        <div class="col">
+            <section>
+                <div class="pieID pie">
+
+                </div>
+                <ul class="pieID legend" style="margin-left:120px;margin-top:50px">
+                    <li>
+                        <em id="sym1"></em>
+                        <span id="prob1"></span>
+                    </li>
+                    <li>
+                        <em id="sym2"></em>
+                        <span id="prob2"></span>
+                    </li>
+                    <li>
+                        <em id="sym3"></em>
+                        <span id="prob3"></span>
+                    </li>
+                </ul>
+            </section>
+        </div>
+    </div>
+    <script src="./pie.js"></script>
+    <script src="./sketch.js"></script>
+</body>
+
+</html>
